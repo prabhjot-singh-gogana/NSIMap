@@ -52,9 +52,10 @@ mapViewHome.findLocationWhenDragging(true, shouldShowCenterMarker:true, location
     }
     
 ```
-  
-  ## Marker and Map
-  Markers can be easily created with one line and can be customize according to the requirement. Markers and Map related events are given bellow.
+
+##Marker and Map
+
+Markers can be easily created with one line and can be customize according to the requirement. Markers and Map related events are given bellow.
   
   **Marker Creation**
   
@@ -98,7 +99,8 @@ mapViewHome.findLocationWhenDragging(true, shouldShowCenterMarker:true, location
 ```
 
 **Marker and Map Events**
-    All the touch events on map and marker will be implemented in one line of code
+
+All the touch events on map and marker will be implemented in one line of code
     
 ***Documentation***
     
@@ -132,3 +134,7 @@ mapViewHome.findLocationWhenDragging(true, shouldShowCenterMarker:true, location
             }
         }
 ```
+## Author
+Prabhjot Singh
+## License
+NSIMap is available under the MIT license. See the LICENSE file for more info
