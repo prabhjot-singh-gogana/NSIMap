@@ -34,7 +34,7 @@ struct NSIMarker {
      - parameter locations: latitude and longitude
      - returns: array of NSIMarker
      */
-    static func markersOfLocation(locations: [CLLocationCoordinate2D]) -> [NSIMarker] {
+    static func markersOfLocation(_ locations: [CLLocationCoordinate2D]) -> [NSIMarker] {
         var markers = [NSIMarker]()
         for location in locations {
             var marker = NSIMarker()
@@ -57,12 +57,12 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter viewSize: view size is the width and height of the image
      - parameter image:    image of the center marker
      */
-    func showCenterMarker(viewSize: CGSize = CGSizeMake(18, 26), image: UIImage? = UIImage(named: "centerMarker")) {
+    func showCenterMarker(_ viewSize: CGSize = CGSize(width: 18, height: 26), image: UIImage? = UIImage(named: "centerMarker")) {
         if self.centerMarker == nil {
             self.centerMarker = viewMarkerCenter(viewSize)
         }
         self.centerMarker!.image = image
-        UIView.animateWithDuration(1) {
+        UIView.animate(withDuration: 1) {
             self.addSubview(self.centerMarker!)
         }
         
@@ -75,7 +75,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
         if self.centerMarker == nil {
             return
         }
-        UIView.animateWithDuration(1) {
+        UIView.animate(withDuration: 1) {
             self.centerMarker?.removeFromSuperview()
         }
     }
@@ -86,15 +86,15 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter viewSize: size of the center marker
      - returns: imageView of the center marker
      */
-    private func viewMarkerCenter(viewSize: CGSize) -> UIImageView {
+    fileprivate func viewMarkerCenter(_ viewSize: CGSize) -> UIImageView {
         self.setNeedsLayout()
         self.layoutIfNeeded()
         
         let yOrigin = self.frame.height/2 - viewSize.height
         let xOrigin = self.frame.width/2 - viewSize.width/2
         
-        let imageMarker = UIImageView(frame: CGRectMake(xOrigin, yOrigin, viewSize.width, viewSize.height))
-        imageMarker.contentMode = UIViewContentMode.ScaleToFill
+        let imageMarker = UIImageView(frame: CGRect(x: xOrigin, y: yOrigin, width: viewSize.width, height: viewSize.height))
+        imageMarker.contentMode = UIViewContentMode.scaleToFill
         return imageMarker
     }
 
@@ -106,7 +106,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter nsiMarker: model which is used to store the google marker type values
      - parameter completed: closure which returns success
      */
-    func createMarker(nsiMarker: NSIMarker, completed: SuccessHandler) {
+    func createMarker(_ nsiMarker: NSIMarker, completed: SuccessHandler) {
         createMarker(nsiMarker)
         completed()
     }
@@ -116,7 +116,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      
      - parameter nsiMarker: model which is used to store the google marker type values
      */
-    func createMarker(nsiMarker: NSIMarker) {
+    func createMarker(_ nsiMarker: NSIMarker) {
         
         let marker = GMSMarker()
         marker.position = nsiMarker.markerLocation
@@ -126,10 +126,10 @@ extension NSIMapViewProtocol where Self: NSIMapView {
             marker.icon = nsiMarker.markerIcon
         } else {
             if nsiMarker.markerColor != nil {
-                marker.icon = GMSMarker.markerImageWithColor(nsiMarker.markerColor)
+                marker.icon = GMSMarker.markerImage(with: nsiMarker.markerColor)
             }
         }
-        marker.infoWindowAnchor = CGPointMake(0.44, 0.45)
+        marker.infoWindowAnchor = CGPoint(x: 0.44, y: 0.45)
         marker.userData = nsiMarker.markerOtherInfo
         marker.appearAnimation = kGMSMarkerAnimationPop
         marker.map = self
@@ -142,7 +142,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter nsiMarkers: model which is used to store the google marker type values
      - parameter completed:  closure which returns success
      */
-    func createMultipleMarkers(nsiMarkers: [NSIMarker], completed: SuccessHandler) {
+    func createMultipleMarkers(_ nsiMarkers: [NSIMarker], completed: SuccessHandler) {
         createMultipleMarkers(nsiMarkers)
         completed()
     }
@@ -151,7 +151,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      used to create the multiple google markers though array of NSIMarker without success handler
      - parameter nsiMarkers: model of addres
      */
-    func createMultipleMarkers(nsiMarkers: [NSIMarker]) {
+    func createMultipleMarkers(_ nsiMarkers: [NSIMarker]) {
         for marker in nsiMarkers {
             createMarker(marker, completed: {
             })
@@ -166,7 +166,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter infoWindowView:       view which invoke when user click on the marker
      - parameter markerTouchCompleted: handler which gives the marker, Map and touch event
      */
-    func touchOnMarkerOrInfoWindow(infoWindowView: UIView?, markerTouchCompleted: MarkerTouchHandler) {
+    func touchOnMarkerOrInfoWindow(_ infoWindowView: UIView?, markerTouchCompleted: @escaping MarkerTouchHandler) {
         self.infoWindowView = infoWindowView
         self.markerTouchHandler = markerTouchCompleted
     }
@@ -175,7 +175,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      this method is used when user wants to enable touch event on the map
      - parameter mapTouchCompleted: handler which gives the map, coordinates and the touch event
      */
-    func touchOnMap(mapTouchCompleted: MapTouchHandler) {
+    func touchOnMap(_ mapTouchCompleted: @escaping MapTouchHandler) {
         self.mapTouchHandler = mapTouchCompleted
     }
     
@@ -190,10 +190,10 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter shouldShowMarker:    shouldShowMarker is bool variable. defaultly false that means user dont want to show the marker
      - parameter handler:             handler which send the MapRoute object
      */
-    func drawRoute(startLocationMarker: NSIMarker, endLocationMarker: NSIMarker, shouldShowMarker: Bool = false, handler: (mapRoute: NSIMapRoute) -> Void) {
+    func drawRoute(_ startLocationMarker: NSIMarker, endLocationMarker: NSIMarker, shouldShowMarker: Bool = false, handler: @escaping (_ mapRoute: NSIMapRoute) -> Void) {
         let mapRoute = NSIMapRoute(serverKey: "AIzaSyAm0k6TP4RqQ9V8XnA68wZ-E-NnX2xWwYU")
  
-        mapRoute.getDirections(startLocationMarker.markerLocation, destinationLocation:endLocationMarker.markerLocation, waypoints: nil, travelMode: TravelModes.Driving) { (status, success) in
+        mapRoute.getDirections(startLocationMarker.markerLocation, destinationLocation:endLocationMarker.markerLocation, waypoints: nil, travelMode: TravelModes.driving) { (status, success) in
             self.drawPolyline(mapRoute)
             
             if shouldShowMarker == true {
@@ -201,7 +201,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
                 self.createMultipleMarkers(markers)
             }
             
-            handler(mapRoute: mapRoute)
+            handler(mapRoute)
         }
     }
     
@@ -209,7 +209,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      private method used to draw the polyline
      - parameter mapRoute: maproute object
      */
-    private func drawPolyline(mapRoute: NSIMapRoute) {
+    fileprivate func drawPolyline(_ mapRoute: NSIMapRoute) {
         if let route = mapRoute.overviewPolyline["points"] as? String {
             let polyline = GMSPolyline()
             let path: GMSPath = GMSPath(fromEncodedPath: route)!
@@ -228,10 +228,10 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter location: lat and long of the map
      - parameter zoom:     zoom level
      */
-    func setCameraOfMap(location: (latitude: Double, longitude: Double), zoom: Float) {
+    func setCameraOfMap(_ location: (latitude: Double, longitude: Double), zoom: Float) {
         CATransaction.begin()
-        CATransaction.setValue(NSNumber(float: 1.0), forKey: kCATransactionAnimationDuration)
-        self.animateToCameraPosition(GMSCameraPosition.cameraWithLatitude(location.latitude, longitude: location.longitude, zoom: zoom))
+        CATransaction.setValue(NSNumber(value: 1.0), forKey: kCATransactionAnimationDuration)
+        self.animate(to: GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: zoom))
         CATransaction.commit()
     }
 
@@ -246,7 +246,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - parameter location:                       double value of latitude, double value of longitude
      - parameter handler:                        handler returns the Address Model
      */
-    func findLocationWhenDragging(shouldFindLocationWhenDraggMap: Bool = true, shouldShowCenterMarker: Bool = true, location: (latitude: Double, longitude: Double), handler: AddressHandler) {
+    func findLocationWhenDragging(_ shouldFindLocationWhenDraggMap: Bool = true, shouldShowCenterMarker: Bool = true, location: (latitude: Double, longitude: Double), handler: @escaping AddressHandler) {
         locationDragHandler = handler
         self.shouldFindLocationWhenDragging = shouldFindLocationWhenDraggMap
         
@@ -266,7 +266,7 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      - returns: address string
      */
     
-    private func fetchLocationAddressFromGoogle(gLocation: GMSAddress) -> NSIAddress? {
+    fileprivate func fetchLocationAddressFromGoogle(_ gLocation: GMSAddress) -> NSIAddress? {
         guard let lines = gLocation.lines as [String]? else { return nil }
         return NSIAddress(streetName: lines[0], city: gLocation.locality, state: gLocation.administrativeArea, zipCode: gLocation.postalCode, country: gLocation.country)
     }
@@ -276,12 +276,12 @@ extension NSIMapViewProtocol where Self: NSIMapView {
      private method which initialize the GMSGeocoder and give the address of the location
      - parameter location: lat and long
      */
-    private func reverseGeocodeCoordinate(location: CLLocationCoordinate2D) {
+    fileprivate func reverseGeocodeCoordinate(_ location: CLLocationCoordinate2D) {
         
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(location) { response, error in
             if let gLocation: GMSAddress = response?.firstResult() {
-                self.locationDragHandler!(obj: self.fetchLocationAddressFromGoogle(gLocation), success: true)
+                self.locationDragHandler!(self.fetchLocationAddressFromGoogle(gLocation), true)
             }
         }
     }
@@ -291,53 +291,53 @@ extension NSIMapViewProtocol where Self: NSIMapView {
 
 // MARK: - GMSMapViewDelegate
 extension NSIMapView: GMSMapViewDelegate {
-    func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         if shouldFindLocationWhenDragging == true {
             self.reverseGeocodeCoordinate(position.target)
         }
     }
 
-    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if self.markerTouchHandler != nil {
-            self.markerTouchHandler!(markerAndMap: (marker, mapView), touchType: NSITouchType.SingleTouchOnMarker)
+            self.markerTouchHandler!((marker, mapView), NSITouchType.singleTouchOnMarker)
         }
         return false
     }
     
-    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         if self.markerTouchHandler != nil {
-            self.markerTouchHandler!(markerAndMap: (marker, mapView), touchType: NSITouchType.SingleTouchOnInfo)
+            self.markerTouchHandler!((marker, mapView), NSITouchType.singleTouchOnInfo)
         }
     
     }
     
-    func mapView(mapView: GMSMapView, didLongPressInfoWindowOfMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
         if self.markerTouchHandler != nil {
-            self.markerTouchHandler!(markerAndMap: (marker, mapView), touchType: NSITouchType.LongTouchOnInfo)
+            self.markerTouchHandler!((marker, mapView), NSITouchType.longTouchOnInfo)
         }
     }
     
-    func mapView(mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+    func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         if self.infoWindowView != nil {
             return self.infoWindowView
         }
         return nil
     }
     
-    func mapView(mapView: GMSMapView, didCloseInfoWindowOfMarker marker: GMSMarker) {
+    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
         if self.markerTouchHandler != nil {
-            self.markerTouchHandler!(markerAndMap: (marker, mapView), touchType: NSITouchType.CloseTouchOnInfo)
+            self.markerTouchHandler!((marker, mapView), NSITouchType.closeTouchOnInfo)
         }
     }
-    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         if mapTouchHandler != nil {
-            self.mapTouchHandler!(coordinateAndMap:(coordinates: (coordinate.latitude, coordinate.longitude), map: mapView), touchType: NSITouchType.SingleTouchOnMap)
+            self.mapTouchHandler!((coordinates: (coordinate.latitude, coordinate.longitude), map: mapView), NSITouchType.singleTouchOnMap)
         }
     }
     
-    func mapView(mapView: GMSMapView, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         if mapTouchHandler != nil {
-            self.mapTouchHandler!(coordinateAndMap: (coordinates: (coordinate.latitude, coordinate.longitude), map: mapView), touchType: NSITouchType.LongTouchOnMap)
+            self.mapTouchHandler!((coordinates: (coordinate.latitude, coordinate.longitude), map: mapView), NSITouchType.longTouchOnMap)
         }
     }
 }

@@ -16,9 +16,9 @@ class CustomView: UIView {
     override init(frame: CGRect) {
         super.init(frame:frame)
         myLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 180, height: 80))
-        myLabel?.font = UIFont.systemFontOfSize(10)
+        myLabel?.font = UIFont.systemFont(ofSize: 10)
         myLabel?.numberOfLines = 8
-        myLabel?.textColor = UIColor.blueColor()
+        myLabel?.textColor = UIColor.blue
         addSubview(myLabel!)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -52,9 +52,9 @@ class ViewController: UIViewController {
         
         
     //this method is used when user wants to enable touch event on the marker and on marker info. user may also send the infoWindowview here
-        let customeView = CustomView(frame: CGRectMake(0, 0, 200, 200))
+        let customeView = CustomView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         mapViewHome.touchOnMarkerOrInfoWindow(customeView) { (markerAndMap, touchType) in
-            if touchType == .SingleTouchOnMarker {
+            if touchType == .singleTouchOnMarker {
                 customeView.myLabel?.text = "coordinates - \(markerAndMap.marker.position)"
             }
         }
@@ -63,16 +63,16 @@ class ViewController: UIViewController {
         
     //this method is used when user wants to enable touch event on the map
         mapViewHome.touchOnMap { (coordinateAndMap, touchType) in
-            if touchType == .LongTouchOnMap {
+            if touchType == .longTouchOnMap {
                 self.singleMarkerCreation(coordinateAndMap.coordinates)
             }
         }
     }
-    @IBAction func toChangeMapType(sender: AnyObject) {
+    @IBAction func toChangeMapType(_ sender: AnyObject) {
     //used change the style of the map
-        mapViewHome.nsiMapType = .SatteliteMap
+        mapViewHome.nsiMapType = .satteliteMap
     }
-    @IBAction func toCreateMultipleMarkers(sender: AnyObject) {
+    @IBAction func toCreateMultipleMarkers(_ sender: AnyObject) {
         
     // multiple marker creation
         let nsiMarkers = NSIMarker.markersOfLocation(locations)
@@ -80,11 +80,11 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func toCreateMarker(sender: AnyObject) {
+    @IBAction func toCreateMarker(_ sender: AnyObject) {
     //For more customization use following code
         var marker: NSIMarker {
             var marker = NSIMarker(location: (latitude: 23, longitude: 452))
-            marker.markerColor = UIColor.blueColor()
+            marker.markerColor = UIColor.blue
             marker.markerIcon = UIImage(named: "centerMarker")
             marker.markerOtherInfo = NSArray(objects: "Hello")
             return marker
@@ -93,18 +93,18 @@ class ViewController: UIViewController {
             self.mapViewHome.setCameraOfMap((latitude: marker.markerLocation.latitude, longitude: marker.markerLocation.longitude), zoom: self.zoomDefault)
         }
     }
-    func singleMarkerCreation(location:(latitude: Double, longitude: Double)) {
+    func singleMarkerCreation(_ location:(latitude: Double, longitude: Double)) {
 // simple marker creation
         mapViewHome.createMarker(NSIMarker(location: location), completed: {
 //            self.mapViewHome.setCameraHOLHOLOfMap(location, zoom: self.zoomDefault)
         })
     }
-    @IBAction func toChangeSpeed(sender: AnyObject) {
+    @IBAction func toChangeSpeed(_ sender: AnyObject) {
     //used to change the speed of the map
-        mapViewHome.nsiMapSpeed = .Slow
+        mapViewHome.nsiMapSpeed = .slow
     }
 //used to show/hide the center marker
-    @IBAction func toRemoveORCreateCMarker(sender: UIButton) {
+    @IBAction func toRemoveORCreateCMarker(_ sender: UIButton) {
         if sender.tag == 1 {
             sender.tag = 2
             mapViewHome.hideCenterMarker()
@@ -114,10 +114,10 @@ class ViewController: UIViewController {
         }
     }
 //used to present the GMSPlacesAutocompleteTypeFilter which show the table with searchbar
-    @IBAction func toShowNSIAutoCompletePlaces(sender: UIButton) {
+    @IBAction func toShowNSIAutoCompletePlaces(_ sender: UIButton) {
         let autoCompletePlaces = NSIAutoCompletePlaces()
         
-        let colorSettings = AutoCompleteTableUIColorsSetting(tableBGColor:UIColor.redColor(), tableCellSeparatorColor: UIColor.yellowColor(), primaryTextColor: UIColor.greenColor(), primaryHighlightColor: UIColor.orangeColor(), secondaryTextColor: UIColor.grayColor(), tintColor: UIColor.blueColor())
+        let colorSettings = AutoCompleteTableUIColorsSetting(tableBGColor:UIColor.red, tableCellSeparatorColor: UIColor.yellow, primaryTextColor: UIColor.green, primaryHighlightColor: UIColor.orange, secondaryTextColor: UIColor.gray, tintColor: UIColor.blue)
         autoCompletePlaces.openAutoCompletePlacesController(colorSettings, controller: self) { (obj, success) in
             if success == true {
                 print("--- coordinates = \(obj.coordinate)")

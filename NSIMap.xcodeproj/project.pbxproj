@@ -1,572 +1,1062 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		804882931D000C3A00384F3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804882921D000C3A00384F3A /* AppDelegate.swift */; };
-		804882951D000C3A00384F3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804882941D000C3A00384F3A /* ViewController.swift */; };
-		804882981D000C3A00384F3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804882961D000C3A00384F3A /* Main.storyboard */; };
-		8048829A1D000C3A00384F3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804882991D000C3A00384F3A /* Assets.xcassets */; };
-		8048829D1D000C3A00384F3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8048829B1D000C3A00384F3A /* LaunchScreen.storyboard */; };
-		804882A81D000C3A00384F3A /* NSIMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804882A71D000C3A00384F3A /* NSIMapTests.swift */; };
-		804882B51D000CA000384F3A /* NSIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804882B31D000CA000384F3A /* NSIMapView.swift */; };
-		804882B81D00102600384F3A /* NSIMapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804882B71D00102600384F3A /* NSIMapViewProtocol.swift */; };
-		804D88971D116B7000C7EB1B /* NSIAutoCompletePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804D88961D116B7000C7EB1B /* NSIAutoCompletePlaces.swift */; };
-		808451261D05800F009E9C83 /* MapRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808451251D05800F009E9C83 /* MapRoute.swift */; };
-		C3C39506F25736A433B67B38 /* libPods-NSIMapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A0AF75B026466F113650EE /* libPods-NSIMapTests.a */; };
-		D4BC7DD0D477E7F47EB22A5E /* libPods-NSIMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A1C89175C1620D63D52885 /* libPods-NSIMap.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		804882A41D000C3A00384F3A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 804882871D000C3800384F3A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8048828E1D000C3800384F3A;
-			remoteInfo = NSIMap;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		18E7658BDEF6D97D836826EE /* Pods-NSIMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSIMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap.release.xcconfig"; sourceTree = "<group>"; };
-		59A1C89175C1620D63D52885 /* libPods-NSIMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NSIMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8048828F1D000C3800384F3A /* NSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		804882921D000C3A00384F3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		804882941D000C3A00384F3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		804882971D000C3A00384F3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		804882991D000C3A00384F3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8048829C1D000C3A00384F3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8048829E1D000C3A00384F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		804882A31D000C3A00384F3A /* NSIMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSIMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		804882A71D000C3A00384F3A /* NSIMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSIMapTests.swift; sourceTree = "<group>"; };
-		804882A91D000C3A00384F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		804882B31D000CA000384F3A /* NSIMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIMapView.swift; sourceTree = "<group>"; };
-		804882B71D00102600384F3A /* NSIMapViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIMapViewProtocol.swift; sourceTree = "<group>"; };
-		804D88961D116B7000C7EB1B /* NSIAutoCompletePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIAutoCompletePlaces.swift; sourceTree = "<group>"; };
-		808451251D05800F009E9C83 /* MapRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRoute.swift; sourceTree = "<group>"; };
-		9EDC7627FBEBCE66942E220C /* Pods-NSIMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSIMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSIMapTests/Pods-NSIMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		B1A0AF75B026466F113650EE /* libPods-NSIMapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NSIMapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7EAF126A40EA8D9B9C489DB /* Pods-NSIMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSIMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap.debug.xcconfig"; sourceTree = "<group>"; };
-		C620BA81321EBA872D8D3D96 /* Pods-NSIMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSIMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NSIMapTests/Pods-NSIMapTests.debug.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		8048828C1D000C3800384F3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4BC7DD0D477E7F47EB22A5E /* libPods-NSIMap.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		804882A01D000C3A00384F3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3C39506F25736A433B67B38 /* libPods-NSIMapTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		30466D298E1AFA6C21A5E411 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B7EAF126A40EA8D9B9C489DB /* Pods-NSIMap.debug.xcconfig */,
-				18E7658BDEF6D97D836826EE /* Pods-NSIMap.release.xcconfig */,
-				C620BA81321EBA872D8D3D96 /* Pods-NSIMapTests.debug.xcconfig */,
-				9EDC7627FBEBCE66942E220C /* Pods-NSIMapTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		804882861D000C3800384F3A = {
-			isa = PBXGroup;
-			children = (
-				804882911D000C3900384F3A /* NSIMap */,
-				804882A61D000C3A00384F3A /* NSIMapTests */,
-				804882901D000C3800384F3A /* Products */,
-				30466D298E1AFA6C21A5E411 /* Pods */,
-				B9F04DDF4B2A7165426B6D1B /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		804882901D000C3800384F3A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8048828F1D000C3800384F3A /* NSIMap.app */,
-				804882A31D000C3A00384F3A /* NSIMapTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		804882911D000C3900384F3A /* NSIMap */ = {
-			isa = PBXGroup;
-			children = (
-				804882B21D000CA000384F3A /* NSIMapView */,
-				804882921D000C3A00384F3A /* AppDelegate.swift */,
-				804882941D000C3A00384F3A /* ViewController.swift */,
-				804882961D000C3A00384F3A /* Main.storyboard */,
-				804882991D000C3A00384F3A /* Assets.xcassets */,
-				8048829B1D000C3A00384F3A /* LaunchScreen.storyboard */,
-				8048829E1D000C3A00384F3A /* Info.plist */,
-			);
-			path = NSIMap;
-			sourceTree = "<group>";
-		};
-		804882A61D000C3A00384F3A /* NSIMapTests */ = {
-			isa = PBXGroup;
-			children = (
-				804882A71D000C3A00384F3A /* NSIMapTests.swift */,
-				804882A91D000C3A00384F3A /* Info.plist */,
-			);
-			path = NSIMapTests;
-			sourceTree = "<group>";
-		};
-		804882B21D000CA000384F3A /* NSIMapView */ = {
-			isa = PBXGroup;
-			children = (
-				804882B31D000CA000384F3A /* NSIMapView.swift */,
-				804882B71D00102600384F3A /* NSIMapViewProtocol.swift */,
-				808451251D05800F009E9C83 /* MapRoute.swift */,
-				804D88961D116B7000C7EB1B /* NSIAutoCompletePlaces.swift */,
-			);
-			path = NSIMapView;
-			sourceTree = "<group>";
-		};
-		B9F04DDF4B2A7165426B6D1B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				59A1C89175C1620D63D52885 /* libPods-NSIMap.a */,
-				B1A0AF75B026466F113650EE /* libPods-NSIMapTests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		8048828E1D000C3800384F3A /* NSIMap */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 804882AC1D000C3A00384F3A /* Build configuration list for PBXNativeTarget "NSIMap" */;
-			buildPhases = (
-				B6FA31A65B7769367D0F746F /* Check Pods Manifest.lock */,
-				8048828B1D000C3800384F3A /* Sources */,
-				8048828C1D000C3800384F3A /* Frameworks */,
-				8048828D1D000C3800384F3A /* Resources */,
-				6D2D81AE39B3ABE893EE6B51 /* Embed Pods Frameworks */,
-				AF39D06B9DE8F69B8254C061 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NSIMap;
-			productName = NSIMap;
-			productReference = 8048828F1D000C3800384F3A /* NSIMap.app */;
-			productType = "com.apple.product-type.application";
-		};
-		804882A21D000C3A00384F3A /* NSIMapTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 804882AF1D000C3A00384F3A /* Build configuration list for PBXNativeTarget "NSIMapTests" */;
-			buildPhases = (
-				36607B3B1C4A8DA2BB173514 /* Check Pods Manifest.lock */,
-				8048829F1D000C3A00384F3A /* Sources */,
-				804882A01D000C3A00384F3A /* Frameworks */,
-				804882A11D000C3A00384F3A /* Resources */,
-				66E919D40A8ED6A46EB8BB08 /* Embed Pods Frameworks */,
-				F7D85A0D3F326C642FEF8A64 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				804882A51D000C3A00384F3A /* PBXTargetDependency */,
-			);
-			name = NSIMapTests;
-			productName = NSIMapTests;
-			productReference = 804882A31D000C3A00384F3A /* NSIMapTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		804882871D000C3800384F3A /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Prabhjot Singh";
-				TargetAttributes = {
-					8048828E1D000C3800384F3A = {
-						CreatedOnToolsVersion = 7.3;
-					};
-					804882A21D000C3A00384F3A = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 8048828E1D000C3800384F3A;
-					};
-				};
-			};
-			buildConfigurationList = 8048828A1D000C3800384F3A /* Build configuration list for PBXProject "NSIMap" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 804882861D000C3800384F3A;
-			productRefGroup = 804882901D000C3800384F3A /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				8048828E1D000C3800384F3A /* NSIMap */,
-				804882A21D000C3A00384F3A /* NSIMapTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		8048828D1D000C3800384F3A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8048829D1D000C3A00384F3A /* LaunchScreen.storyboard in Resources */,
-				8048829A1D000C3A00384F3A /* Assets.xcassets in Resources */,
-				804882981D000C3A00384F3A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		804882A11D000C3A00384F3A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		36607B3B1C4A8DA2BB173514 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		66E919D40A8ED6A46EB8BB08 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSIMapTests/Pods-NSIMapTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D2D81AE39B3ABE893EE6B51 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF39D06B9DE8F69B8254C061 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6FA31A65B7769367D0F746F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F7D85A0D3F326C642FEF8A64 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSIMapTests/Pods-NSIMapTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		8048828B1D000C3800384F3A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				804D88971D116B7000C7EB1B /* NSIAutoCompletePlaces.swift in Sources */,
-				804882951D000C3A00384F3A /* ViewController.swift in Sources */,
-				808451261D05800F009E9C83 /* MapRoute.swift in Sources */,
-				804882B51D000CA000384F3A /* NSIMapView.swift in Sources */,
-				804882B81D00102600384F3A /* NSIMapViewProtocol.swift in Sources */,
-				804882931D000C3A00384F3A /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8048829F1D000C3A00384F3A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				804882A81D000C3A00384F3A /* NSIMapTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		804882A51D000C3A00384F3A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8048828E1D000C3800384F3A /* NSIMap */;
-			targetProxy = 804882A41D000C3A00384F3A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		804882961D000C3A00384F3A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				804882971D000C3A00384F3A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8048829B1D000C3A00384F3A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8048829C1D000C3A00384F3A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		804882AA1D000C3A00384F3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		804882AB1D000C3A00384F3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		804882AD1D000C3A00384F3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EAF126A40EA8D9B9C489DB /* Pods-NSIMap.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Manpreet Narang (5TR2L44RMY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Manpreet Narang (5TR2L44RMY)";
-				INFOPLIST_FILE = NSIMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsolutions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e2bc5bb-c603-40bd-8658-b6f85519fe4d";
-			};
-			name = Debug;
-		};
-		804882AE1D000C3A00384F3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18E7658BDEF6D97D836826EE /* Pods-NSIMap.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Manpreet Narang (5TR2L44RMY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Manpreet Narang (5TR2L44RMY)";
-				INFOPLIST_FILE = NSIMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netsolutions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e2bc5bb-c603-40bd-8658-b6f85519fe4d";
-			};
-			name = Release;
-		};
-		804882B01D000C3A00384F3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C620BA81321EBA872D8D3D96 /* Pods-NSIMapTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NSIMapTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NetSolutions.NSIMapTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSIMap.app/NSIMap";
-			};
-			name = Debug;
-		};
-		804882B11D000C3A00384F3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EDC7627FBEBCE66942E220C /* Pods-NSIMapTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NSIMapTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NetSolutions.NSIMapTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSIMap.app/NSIMap";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		8048828A1D000C3800384F3A /* Build configuration list for PBXProject "NSIMap" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				804882AA1D000C3A00384F3A /* Debug */,
-				804882AB1D000C3A00384F3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		804882AC1D000C3A00384F3A /* Build configuration list for PBXNativeTarget "NSIMap" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				804882AD1D000C3A00384F3A /* Debug */,
-				804882AE1D000C3A00384F3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		804882AF1D000C3A00384F3A /* Build configuration list for PBXNativeTarget "NSIMapTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				804882B01D000C3A00384F3A /* Debug */,
-				804882B11D000C3A00384F3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 804882871D000C3800384F3A /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>18E7658BDEF6D97D836826EE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-NSIMap.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>30466D298E1AFA6C21A5E411</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7EAF126A40EA8D9B9C489DB</string>
+				<string>18E7658BDEF6D97D836826EE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>59A1C89175C1620D63D52885</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-NSIMap.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6D2D81AE39B3ABE893EE6B51</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>804882861D000C3800384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>804882911D000C3900384F3A</string>
+				<string>804882A61D000C3A00384F3A</string>
+				<string>804882901D000C3800384F3A</string>
+				<string>30466D298E1AFA6C21A5E411</string>
+				<string>B9F04DDF4B2A7165426B6D1B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882871D000C3800384F3A</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Prabhjot Singh</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>8048828E1D000C3800384F3A</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>LastSwiftMigration</key>
+						<string>0810</string>
+					</dict>
+					<key>804882A21D000C3A00384F3A</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>LastSwiftMigration</key>
+						<string>0810</string>
+						<key>TestTargetID</key>
+						<string>8048828E1D000C3800384F3A</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>8048828A1D000C3800384F3A</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>804882861D000C3800384F3A</string>
+			<key>productRefGroup</key>
+			<string>804882901D000C3800384F3A</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>8048828E1D000C3800384F3A</string>
+				<string>804882A21D000C3A00384F3A</string>
+			</array>
+		</dict>
+		<key>8048828A1D000C3800384F3A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>804882AA1D000C3A00384F3A</string>
+				<string>804882AB1D000C3A00384F3A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8048828B1D000C3800384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>804D88971D116B7000C7EB1B</string>
+				<string>804882951D000C3A00384F3A</string>
+				<string>808451261D05800F009E9C83</string>
+				<string>804882B51D000CA000384F3A</string>
+				<string>804882B81D00102600384F3A</string>
+				<string>804882931D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8048828C1D000C3800384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D4BC7DD0D477E7F47EB22A5E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8048828D1D000C3800384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8048829D1D000C3A00384F3A</string>
+				<string>8048829A1D000C3A00384F3A</string>
+				<string>804882981D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8048828E1D000C3800384F3A</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>804882AC1D000C3A00384F3A</string>
+			<key>buildPhases</key>
+			<array>
+				<string>B6FA31A65B7769367D0F746F</string>
+				<string>8048828B1D000C3800384F3A</string>
+				<string>8048828C1D000C3800384F3A</string>
+				<string>8048828D1D000C3800384F3A</string>
+				<string>6D2D81AE39B3ABE893EE6B51</string>
+				<string>AF39D06B9DE8F69B8254C061</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>NSIMap</string>
+			<key>productName</key>
+			<string>NSIMap</string>
+			<key>productReference</key>
+			<string>8048828F1D000C3800384F3A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>8048828F1D000C3800384F3A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>NSIMap.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>804882901D000C3800384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8048828F1D000C3800384F3A</string>
+				<string>804882A31D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882911D000C3900384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>804882B21D000CA000384F3A</string>
+				<string>804882921D000C3A00384F3A</string>
+				<string>804882941D000C3A00384F3A</string>
+				<string>804882961D000C3A00384F3A</string>
+				<string>804882991D000C3A00384F3A</string>
+				<string>8048829B1D000C3A00384F3A</string>
+				<string>8048829E1D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NSIMap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882921D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882931D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882921D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804882941D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882951D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882941D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804882961D000C3A00384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>804882971D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882971D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882981D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882961D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804882991D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8048829A1D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882991D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8048829B1D000C3A00384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8048829C1D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8048829C1D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8048829D1D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8048829B1D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8048829E1D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8048829F1D000C3A00384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>804882A81D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>804882A01D000C3A00384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>804882A11D000C3A00384F3A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>804882A21D000C3A00384F3A</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>804882AF1D000C3A00384F3A</string>
+			<key>buildPhases</key>
+			<array>
+				<string>8048829F1D000C3A00384F3A</string>
+				<string>804882A01D000C3A00384F3A</string>
+				<string>804882A11D000C3A00384F3A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>804882A51D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>NSIMapTests</string>
+			<key>productName</key>
+			<string>NSIMapTests</string>
+			<key>productReference</key>
+			<string>804882A31D000C3A00384F3A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>804882A31D000C3A00384F3A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>NSIMapTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>804882A41D000C3A00384F3A</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>804882871D000C3800384F3A</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>8048828E1D000C3800384F3A</string>
+			<key>remoteInfo</key>
+			<string>NSIMap</string>
+		</dict>
+		<key>804882A51D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>8048828E1D000C3800384F3A</string>
+			<key>targetProxy</key>
+			<string>804882A41D000C3A00384F3A</string>
+		</dict>
+		<key>804882A61D000C3A00384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>804882A71D000C3A00384F3A</string>
+				<string>804882A91D000C3A00384F3A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NSIMapTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882A71D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NSIMapTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882A81D000C3A00384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882A71D000C3A00384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804882A91D000C3A00384F3A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882AA1D000C3A00384F3A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>804882AB1D000C3A00384F3A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>804882AC1D000C3A00384F3A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>804882AD1D000C3A00384F3A</string>
+				<string>804882AE1D000C3A00384F3A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>804882AD1D000C3A00384F3A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B7EAF126A40EA8D9B9C489DB</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer: Manpreet Narang (5TR2L44RMY)</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer: Manpreet Narang (5TR2L44RMY)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>NSIMap/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.netsolutions</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string>0e2bc5bb-c603-40bd-8658-b6f85519fe4d</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>804882AE1D000C3A00384F3A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>18E7658BDEF6D97D836826EE</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer: Manpreet Narang (5TR2L44RMY)</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer: Manpreet Narang (5TR2L44RMY)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>NSIMap/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.netsolutions</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string>0e2bc5bb-c603-40bd-8658-b6f85519fe4d</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>804882AF1D000C3A00384F3A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>804882B01D000C3A00384F3A</string>
+				<string>804882B11D000C3A00384F3A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>804882B01D000C3A00384F3A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>NSIMapTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>NetSolutions.NSIMapTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/NSIMap.app/NSIMap</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>804882B11D000C3A00384F3A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>NSIMapTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>NetSolutions.NSIMapTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/NSIMap.app/NSIMap</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>804882B21D000CA000384F3A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>804882B31D000CA000384F3A</string>
+				<string>804882B71D00102600384F3A</string>
+				<string>808451251D05800F009E9C83</string>
+				<string>804D88961D116B7000C7EB1B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NSIMapView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882B31D000CA000384F3A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NSIMapView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882B51D000CA000384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882B31D000CA000384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804882B71D00102600384F3A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NSIMapViewProtocol.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804882B81D00102600384F3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804882B71D00102600384F3A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804D88961D116B7000C7EB1B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NSIAutoCompletePlaces.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804D88971D116B7000C7EB1B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804D88961D116B7000C7EB1B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>808451251D05800F009E9C83</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MapRoute.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>808451261D05800F009E9C83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>808451251D05800F009E9C83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AF39D06B9DE8F69B8254C061</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B1A0AF75B026466F113650EE</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-NSIMapTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B6FA31A65B7769367D0F746F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B7EAF126A40EA8D9B9C489DB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-NSIMap.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-NSIMap/Pods-NSIMap.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B9F04DDF4B2A7165426B6D1B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>59A1C89175C1620D63D52885</string>
+				<string>B1A0AF75B026466F113650EE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D4BC7DD0D477E7F47EB22A5E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>59A1C89175C1620D63D52885</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>804882871D000C3800384F3A</string>
+</dict>
+</plist>

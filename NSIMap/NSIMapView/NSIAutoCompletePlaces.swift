@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 /**
  *  model of color table settings
@@ -32,14 +33,14 @@ class NSIAutoCompletePlaces: GMSAutocompleteViewController {
      - parameter controller:          view controller object
      - parameter autoCompleteHandler: handle the completion AnyObject and Bool
      */
-    func openAutoCompletePlacesController(colors: AutoCompleteTableUIColorsSetting?, controller: UIViewController, autoCompleteHandler: CompletionHandler ) {
+    func openAutoCompletePlacesController(_ colors: AutoCompleteTableUIColorsSetting?, controller: UIViewController, autoCompleteHandler: @escaping CompletionHandler ) {
         self.autoCompletePlaceHandler = autoCompleteHandler
         if colors != nil {
             self.initializationUI(colors!)
         }
-        self.autocompleteFilter?.type = GMSPlacesAutocompleteTypeFilter.NoFilter
+        self.autocompleteFilter?.type = GMSPlacesAutocompleteTypeFilter.noFilter
         self.delegate = self
-        controller.presentViewController(self, animated: true, completion: nil)
+        controller.present(self, animated: true, completion: nil)
     }
     
     /**
@@ -47,7 +48,7 @@ class NSIAutoCompletePlaces: GMSAutocompleteViewController {
      
      - parameter colors: model of color table settings
      */
-    private func initializationUI(colors: AutoCompleteTableUIColorsSetting) {
+    fileprivate func initializationUI(_ colors: AutoCompleteTableUIColorsSetting) {
         self.tableCellBackgroundColor = colors.tableBGColor
         self.tableCellSeparatorColor = colors.tableCellSeparatorColor
         self.primaryTextColor = colors.primaryTextColor
@@ -61,24 +62,24 @@ class NSIAutoCompletePlaces: GMSAutocompleteViewController {
 extension NSIAutoCompletePlaces: GMSAutocompleteViewControllerDelegate {
     
 // method invoke when click on the row if its success
-    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         if self.autoCompletePlaceHandler != nil {
-            self.autoCompletePlaceHandler!(obj: place, success: true)
+            self.autoCompletePlaceHandler!(place, true)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 // method invoke when click on the row if its not success
-    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         if self.autoCompletePlaceHandler != nil {
-            self.autoCompletePlaceHandler!(obj: error, success: false)
+            self.autoCompletePlaceHandler!(error as AnyObject, false)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 // User canceled the operation.
-    func wasCancelled(viewController: GMSAutocompleteViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -2,16 +2,13 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'NSIMap' do
 
-pod 'GoogleMaps'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 
-end
-
-target 'NSIMapTests' do
-
-pod 'GoogleMaps'
 
 end
 

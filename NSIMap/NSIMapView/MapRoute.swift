@@ -16,14 +16,14 @@ import CoreLocation
 class NSIMapRoute {
     var serverKey = ""
     let baseURLGeocode = "https://maps.googleapis.com/maps/api/geocode/json?"
-    var lookupAddressResults: Dictionary<NSObject, AnyObject>!
+    var lookupAddressResults: Dictionary<String, AnyObject>!
     var fetchedFormattedAddress: String!
     var fetchedAddressLongitude: Double!
     var fetchedAddressLatitude: Double!
     
     let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
-    var selectedRoute: Dictionary<NSObject, AnyObject>!
-    var overviewPolyline: NSDictionary!
+    var selectedRoute: Dictionary<String, AnyObject>!
+    var overviewPolyline: Dictionary<String, AnyObject>!
     var originCoordinate: CLLocationCoordinate2D!
     var destinationCoordinate: CLLocationCoordinate2D!
     var originAddress: String!
@@ -43,9 +43,6 @@ class NSIMapRoute {
 
 
 protocol MapRouteProtocol {
-     func geocodeAddress(address: String!, withCompletionHandler completionHandler: ((status: String, success: Bool) -> Void))
-     func getDirections(originLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D, waypoints: Array<String>?, travelMode: TravelModes, completionHandler: ((status: String, success: Bool) -> Void))
-     func calculateTotalDistanceAndDuration()
 }
     
 extension NSIMapRoute: MapRouteProtocol {
@@ -56,19 +53,19 @@ extension NSIMapRoute: MapRouteProtocol {
  - parameter address:           any address
  - parameter completionHandler: closure which sends the status and bool
  */
-internal func geocodeAddress(address: String!, withCompletionHandler completionHandler: ((status: String, success: Bool) -> Void)) {
+internal func geocodeAddress(_ address: String!, withCompletionHandler completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
     if let lookupAddress = address {
         
         var geocodeURLString = baseURLGeocode + "address=" + lookupAddress
-        geocodeURLString = geocodeURLString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        geocodeURLString = geocodeURLString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
-        let geocodeURL = NSURL(string: geocodeURLString)
+        let geocodeURL = URL(string: geocodeURLString)
 
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            let geocodingResultsData = NSData(contentsOfURL: geocodeURL!)
+        DispatchQueue.main.async(execute: { () -> Void in
+            let geocodingResultsData = try? Data(contentsOf: geocodeURL!)
 
             do {
-                guard let dictionary: Dictionary<String, AnyObject> = try NSJSONSerialization.JSONObjectWithData(geocodingResultsData!, options: NSJSONReadingOptions.MutableContainers) as? [String: AnyObject] else {return}
+                guard let dictionary: Dictionary<String, AnyObject> = try JSONSerialization.jsonObject(with: geocodingResultsData!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject] else {return}
                 
                 guard let status = dictionary["status"] as? String else {return}
 
@@ -76,26 +73,26 @@ internal func geocodeAddress(address: String!, withCompletionHandler completionH
                     
                     guard let allResults = dictionary["results"] as? Array<Dictionary<String, AnyObject>> else {return}
                     
-                    self.lookupAddressResults = allResults[0]
+                    self.lookupAddressResults = allResults[0] as Dictionary<String, AnyObject>!
 
                     // Keep the most important values.
                     if let fetchedFormattedAddress = self.lookupAddressResults["formatted_address"] as? String{
                         self.fetchedFormattedAddress = fetchedFormattedAddress
                     }
                     
-                    if let geometry = self.lookupAddressResults["geometry"] as? Dictionary<NSObject, AnyObject>{
-                        let fetchedAddressLongitude = ((geometry["location"] as? Dictionary<NSObject, AnyObject> ?? [:])["lng"] as? NSNumber ?? 0).doubleValue
+                    if let geometry = self.lookupAddressResults["geometry"] as? Dictionary<String, AnyObject>{
+                        let fetchedAddressLongitude = ((geometry["location"] as? Dictionary<String, AnyObject> ?? [:])["lng"] as? NSNumber ?? 0).doubleValue
                         self.fetchedAddressLongitude = fetchedAddressLongitude
                         
-                        let fetchedAddressLatitude = ((geometry["location"] as? Dictionary<NSObject, AnyObject> ?? [:])["lat"] as? NSNumber ?? 0).doubleValue
+                        let fetchedAddressLatitude = ((geometry["location"] as? Dictionary<String, AnyObject> ?? [:])["lat"] as? NSNumber ?? 0).doubleValue
                         self.fetchedAddressLatitude = fetchedAddressLatitude
                     }
 
-                    completionHandler(status: status, success: true)
+                    completionHandler(status, true)
                     
                 }
                 else {
-                    completionHandler(status: status, success: false)
+                    completionHandler(status, false)
                 }
 
                 // use anyObj here
@@ -105,7 +102,7 @@ internal func geocodeAddress(address: String!, withCompletionHandler completionH
         })
     }
     else {
-        completionHandler(status: "No valid address.", success: false)
+        completionHandler("No valid address.", false)
     }
 }
 
@@ -118,7 +115,7 @@ internal func geocodeAddress(address: String!, withCompletionHandler completionH
  - parameter travelMode:        mode will be biking , running and in car
  - parameter completionHandler: closure which sends the status and bool
  */
-internal func getDirections(originLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D, waypoints: Array<String>?, travelMode: TravelModes, completionHandler: ((status: String, success: Bool) -> Void)) {
+internal func getDirections(_ originLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D, waypoints: Array<String>?, travelMode: TravelModes, completionHandler: @escaping ((_ status: String, _ success: Bool) -> Void)) {
 
     let origin = "\(originLocation.latitude)" + "," + "\(originLocation.longitude)"
     let destination = "\(destinationLocation.latitude)" + "," + "\(destinationLocation.longitude)"
@@ -136,9 +133,9 @@ internal func getDirections(originLocation: CLLocationCoordinate2D, destinationL
 // travel mode initialization
     var travelModeString = ""
     switch travelMode.rawValue {
-    case TravelModes.Walking.rawValue:
+    case TravelModes.walking.rawValue:
         travelModeString = "walking"
-    case TravelModes.Bicycling.rawValue:
+    case TravelModes.bicycling.rawValue:
         travelModeString = "bicycling"
     default:
         travelModeString = "driving"
@@ -146,31 +143,31 @@ internal func getDirections(originLocation: CLLocationCoordinate2D, destinationL
     
     directionsURLString += "&mode=" + travelModeString
     directionsURLString = directionsURLString + "/\(serverKey)"
-    directionsURLString = directionsURLString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+    directionsURLString = directionsURLString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
-    let directionsURL = NSURL(string: directionsURLString)
+    let directionsURL = URL(string: directionsURLString)
 
-    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-        guard let directionsData: NSData? = NSData(contentsOfURL: directionsURL!) else {return}
+    DispatchQueue.main.async(execute: { () -> Void in
+        guard let directionsData: Data? = try? Data(contentsOf: directionsURL!) else {return}
         
         do {
-            guard let dictionary: Dictionary<NSObject, AnyObject> = try NSJSONSerialization.JSONObjectWithData(directionsData!, options: NSJSONReadingOptions.MutableContainers) as? [String: AnyObject] else {return}
+            guard let dictionary: Dictionary<String, AnyObject> = try JSONSerialization.jsonObject(with: directionsData!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject] as Dictionary<String, AnyObject>? else {return}
             guard let status = dictionary["status"] as? String else {return}
             
             if status == "OK"{
-                self.selectedRoute = (dictionary["routes"] as? Array<Dictionary<NSObject, AnyObject>> ?? [])[0] ?? [:]
-                if let overviewPol = self.selectedRoute["overview_polyline"] as? NSDictionary {
+                self.selectedRoute = (dictionary["routes"] as? Array<Dictionary<String, AnyObject>> ?? [])[0] 
+                if let overviewPol = self.selectedRoute["overview_polyline"] as? Dictionary<String, AnyObject> {
                     self.overviewPolyline = overviewPol
                 }
                 
-                guard let legs = self.selectedRoute["legs"] as? Array<Dictionary<NSObject, AnyObject>> else {return}
-                let startLocationDictionary = legs[0]["start_location"] as? Dictionary<NSObject, AnyObject> ?? [:]
+                guard let legs = self.selectedRoute["legs"] as? Array<Dictionary<String, AnyObject>> else {return}
+                let startLocationDictionary = legs[0]["start_location"] as? Dictionary<String, AnyObject> ?? [:]
                 self.originCoordinate = CLLocationCoordinate2DMake(startLocationDictionary["lat"] as? Double ?? 0, startLocationDictionary["lng"] as? Double ?? 0)
-                let endLocationDictionary = legs[legs.count - 1]["end_location"] as? Dictionary<NSObject, AnyObject> ?? [:]
+                let endLocationDictionary = legs[legs.count - 1]["end_location"] as? Dictionary<String, AnyObject> ?? [:]
                 self.destinationCoordinate = CLLocationCoordinate2DMake(endLocationDictionary["lat"] as? Double ?? 0, endLocationDictionary["lng"] as? Double ?? 0)
                 
                 self.calculateTotalDistanceAndDuration()
-                completionHandler(status: status, success: true)
+                completionHandler(status, true)
                 return
             }
             
@@ -186,14 +183,14 @@ internal func getDirections(originLocation: CLLocationCoordinate2D, destinationL
  Calculate the distance and duration
  */
  internal func calculateTotalDistanceAndDuration() {
-        let legs = self.selectedRoute["legs"] as? Array<Dictionary<NSObject, AnyObject>> ?? []
+        let legs = self.selectedRoute["legs"] as? Array<Dictionary<String, AnyObject>> ?? []
 
         totalDistanceInMeters = 0
         totalDurationInSeconds = 0
 
         for leg in legs {
-            totalDistanceInMeters += (leg["distance"] as? Dictionary<NSObject, AnyObject> ?? [:])["value"] as? UInt ?? 0
-            totalDurationInSeconds += (leg["duration"] as? Dictionary<NSObject, AnyObject> ?? [:])["value"] as? UInt ?? 0
+            totalDistanceInMeters += (leg["distance"] as? Dictionary<String, AnyObject> ?? [:])["value"] as? UInt ?? 0
+            totalDurationInSeconds += (leg["duration"] as? Dictionary<String, AnyObject> ?? [:])["value"] as? UInt ?? 0
         }
 
         let distanceInKilometers: Double = Double(totalDistanceInMeters / 1000)
